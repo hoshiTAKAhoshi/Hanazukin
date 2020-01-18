@@ -337,7 +337,7 @@ void Player::ClearUpdate()
 double Player::GetGravity(double vy)
 {
 	std::array<double,8> treshold{-99,    -6.5,    -4,    -2.5,    0,    1,    2,    99};
-	double gValue[] = {               0.2,     0.55,   0.1,   0.06,  0.06,  0.08,  0.1 };
+	double gValue[] = {               0.1,     0.55,   0.1,   0.06,  0.06,  0.08,  0.1 };
 	//return 0.1;
 	for (int i =0;i<(treshold.size()) - 1;i++)
 	{

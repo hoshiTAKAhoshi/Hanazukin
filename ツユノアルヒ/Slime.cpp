@@ -220,9 +220,9 @@ void Slime::Update()
 	{
 		MoveSinCnt++;
 		if (MigiMuki == 0)
-			X += (VX - 0.7*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
+			X += (VX - 0.5*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
 		else
-			X += (VX + 0.7*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
+			X += (VX + 0.5*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
 	}
 	else if (MoveSinCnt != 0)
 	{
