@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Bg">
+      <UniqueIdentifier>{60492376-5f1a-425c-b2d3-c437331d0e90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Bg">
+      <UniqueIdentifier>{91696505-b356-44a3-8708-c3502f5174ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\シングルトン">
+      <UniqueIdentifier>{ec85f4db-57b9-486a-b38a-ac8ebaa6a7d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\シングルトン">
+      <UniqueIdentifier>{415d9019-f2b4-4d6d-a1a9-9eb0f7288319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\メインゲーム">
+      <UniqueIdentifier>{2bb2e0a8-18a6-4387-9a40-397d5ee45382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\メインゲーム">
+      <UniqueIdentifier>{c4a4e9f7-da95-423e-b4bf-ec97a7f0b406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\タイトル">
+      <UniqueIdentifier>{9970a3fc-fa8e-4444-bc37-bc88fa6d0e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\タイトル">
+      <UniqueIdentifier>{fca687d3-85da-42ae-81cb-51ee9718c0da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ステージセレクト">
+      <UniqueIdentifier>{4755914e-94f2-4152-a823-8559be24bfb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ステージセレクト">
+      <UniqueIdentifier>{0cd21ec5-776c-4447-ad41-828f4d6afcab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\メインゲーム\敵">
+      <UniqueIdentifier>{f49d8fad-b13e-4d9f-83f1-a7a7c605de48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\メインゲーム\敵">
+      <UniqueIdentifier>{3b0bc7c1-e556-4298-ba63-49f29b762298}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="BgMgr.cpp">
+      <Filter>ソース ファイル\Bg</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Shake.cpp">
+      <Filter>ソース ファイル\シングルトン</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="Bank.cpp">
+      <Filter>ソース ファイル\シングルトン</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>ソース ファイル\シングルトン</Filter>
+    </ClCompile>
+    <ClCompile Include="StagePutter.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="TkDrawString.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ThunderMgr.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="OutLineMgr.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Yusya.cpp">
+      <Filter>ソース ファイル\メインゲーム</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectMgr.cpp">
+      <Filter>ソース ファイル\シングルトン</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectStage.cpp">
+      <Filter>ソース ファイル\ステージセレクト</Filter>
+    </ClCompile>
+    <ClCompile Include="Thumbnail.cpp">
+      <Filter>ソース ファイル\ステージセレクト</Filter>
+    </ClCompile>
+    <ClCompile Include="NewMainGame.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Frog.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="KaminariSama.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="Fire.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="Iwa.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="WarpMan.cpp">
+      <Filter>ソース ファイル\メインゲーム\敵</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="BgMgr.h">
+      <Filter>ヘッダー ファイル\Bg</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>ヘッダー ファイル\シングルトン</Filter>
+    </ClInclude>
+    <ClInclude Include="Shake.h">
+      <Filter>ヘッダー ファイル\シングルトン</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="Bank.h">
+      <Filter>ヘッダー ファイル\シングルトン</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>ヘッダー ファイル\シングルトン</Filter>
+    </ClInclude>
+    <ClInclude Include="StagePutter.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="TkDrawString.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ヘッダー ファイル\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderMgr.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="OutLineMgr.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Yusya.h">
+      <Filter>ヘッダー ファイル\メインゲーム</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectMgr.h">
+      <Filter>ヘッダー ファイル\シングルトン</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectStage.h">
+      <Filter>ヘッダー ファイル\ステージセレクト</Filter>
+    </ClInclude>
+    <ClInclude Include="Thumbnail.h">
+      <Filter>ヘッダー ファイル\ステージセレクト</Filter>
+    </ClInclude>
+    <ClInclude Include="NewMainGame.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Frog.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="KaminariSama.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="Fire.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="Iwa.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="WarpMan.h">
+      <Filter>ヘッダー ファイル\メインゲーム\敵</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
