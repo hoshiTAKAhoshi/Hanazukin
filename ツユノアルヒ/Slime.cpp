@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include "Slime.h"
 #include "DxLib.h"
 #include "Bank.h"
@@ -215,7 +216,18 @@ void Slime::Update()
 {
 	Sprite::Update();
 
-	X += (VX + SitaVX);
+	if (MoveF == 1 && TurnStopCnt==0 && LandingCnt==0)
+	{
+		MoveSinCnt++;
+		if (MigiMuki == 0)
+			X += (VX - 0.9*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
+		else
+			X += (VX + 0.9*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
+	}
+	else if (MoveSinCnt != 0)
+	{
+		MoveSinCnt = 0;
+	}
 
 	//右に地面がある
 	if (Bg->GetChip(0, X + AtariX[1] * ExRate - 1, Y + AtariY[0] * ExRate + 1) != -1 || Bg->GetChip(0, X + AtariX[1] * ExRate - 1, Y + AtariY[1] * ExRate - 1) != -1)
@@ -299,6 +311,7 @@ void Slime::Update()
 		if (StandF == 0)
 		{
 			StandF = 1;
+			LandingCnt = 1;
 			Y = (int)Y;
 			//めり込み防止
 			while (Bg->GetChip(0, X + AtariX[0] * ExRate + 1, Y + AtariY[1] * ExRate) != -1 || Bg->GetChip(0, X + AtariX[1] * ExRate - 1, Y + AtariY[1] * ExRate) != -1)
@@ -306,6 +319,18 @@ void Slime::Update()
 				Y--;
 			}
 			Y++;
+
+			int puniFrame=8;
+			//着地プ二ッ
+			if (MigiMuki == 1)
+			{
+				SpAnim(puniFrame, 29, puniFrame, 12, puniFrame, 12, puniFrame, 12, 1);
+			}
+			else
+			{
+				SpAnim(puniFrame, 21, puniFrame, 4, puniFrame, 4, puniFrame, 241, 1);
+			}
+
 		}
 	}
 	else
@@ -314,9 +339,48 @@ void Slime::Update()
 		{
 			StandF = 0;
 			VY = 0;
+
+			//落ちるときにじたばたする
+			int jitabataFrame = 8;
+			if (MigiMuki == 1)
+			{
+				SpAnim(jitabataFrame*2.6, 8, jitabataFrame, 30, jitabataFrame, 31, jitabataFrame, 31, 1);
+			}
+			else
+			{
+				SpAnim(jitabataFrame*2.6, 0, jitabataFrame, 22, jitabataFrame, 23, jitabataFrame, 23, 1);
+			}
+
 		}
 	}
 
+
+	if (LandingCnt >= 1)
+	{
+		LandingCnt++;
+
+		if (LandingCnt >= 20)
+		{
+			LandingCnt = 0;
+			if (MoveF == 1)
+			{
+				MoveSinCnt = 0;
+				TurnStopCnt = 0;
+				//MigiMuki = 0;
+				if (MigiMuki == 1)
+				{
+					VX = 1;
+					SpAnim(10, 8, 10, 9, 10, 10, 10, 11, -1);
+				}
+				else
+				{
+					VX = -1;
+					SpAnim(10, 0, 10, 1, 10, 2, 10, 3, 0);
+				}
+			}
+
+		}
+	}
 }
 
 
@@ -334,6 +398,7 @@ void Slime::SetBgMgr(BgMgr * Bg)
 void Slime::MoveStart()
 {
 	MoveF = 1;
+	MoveSinCnt = 0;
 	TurnStopCnt = 0;
 	//MigiMuki = 0;
 	if (MigiMuki == 1)
@@ -375,7 +440,7 @@ Slime::Slime(int BgX, int BgY,BgMgr* Bg)
 	Y = BgY * 16 * ExRate + 8 * ExRate + Bg->GetY();
 	this->Bg = Bg;
 	HitType = ABLE_TO_STEP_ON;
-	StandF = 0;
+	StandF = 1;
 	MigiMuki = 0;
 	VX = 0;
 	SitaVY = 0;
@@ -396,7 +461,7 @@ Slime::~Slime()
 {
 	//printfDx("DESTRACT");
 	if (MigiMuki == 0)
-		EffectMgr::Instance()->SetEffect(X, Y, GrHandleData, STOP, 30, 5, 21, 60, 22, 60, 22, 60, 22, 1);
+		EffectMgr::Instance()->SetEffect(X, Y, GrHandleData, STOP, 30, 5, 6, 60, 7, 60, 22, 60, 22, 1);
 	else
-		EffectMgr::Instance()->SetEffect(X, Y, GrHandleData, STOP, 30, 5, 21+8, 60, 22+8, 60, 22, 60, 22, 1);
+		EffectMgr::Instance()->SetEffect(X, Y, GrHandleData, STOP, 30, 5, 6+8, 60, 7+8, 60, 22, 60, 22, 1);
 }

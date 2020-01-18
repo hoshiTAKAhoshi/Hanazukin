@@ -19,5 +19,7 @@ public:
 	~Slime();
 private:
 	bool StandF;
+	int MoveSinCnt;
+	int LandingCnt;
 };
 
