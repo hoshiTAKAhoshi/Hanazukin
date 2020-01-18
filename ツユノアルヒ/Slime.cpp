@@ -220,9 +220,9 @@ void Slime::Update()
 	{
 		MoveSinCnt++;
 		if (MigiMuki == 0)
-			X += (VX - 0.9*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
+			X += (VX - 0.7*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
 		else
-			X += (VX + 0.9*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
+			X += (VX + 0.7*sin((double)MoveSinCnt*M_PI / 20 + M_PI / 8)*(StandF == 1) + SitaVX);
 	}
 	else if (MoveSinCnt != 0)
 	{
@@ -344,11 +344,11 @@ void Slime::Update()
 			int jitabataFrame = 8;
 			if (MigiMuki == 1)
 			{
-				SpAnim(jitabataFrame*2.6, 8, jitabataFrame, 30, jitabataFrame, 31, jitabataFrame, 31, 1);
+				SpAnim(6, 31, jitabataFrame*2.6, 8, jitabataFrame, 30, jitabataFrame, 31,  1);
 			}
 			else
 			{
-				SpAnim(jitabataFrame*2.6, 0, jitabataFrame, 22, jitabataFrame, 23, jitabataFrame, 23, 1);
+				SpAnim(6, 23, jitabataFrame*2.6, 0, jitabataFrame, 22, jitabataFrame, 23,  1);
 			}
 
 		}

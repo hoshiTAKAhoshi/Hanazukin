@@ -14,9 +14,9 @@
             ,
          z  ,
             ,
-     a    G ,
- S   E  aEEE,
-EEEEE EEEEEE,
+          G ,
+ Sa     aEEE,
+EE EEEEEEEEE,
 EEEEE EEEEEE,
 EEEEE EEEEEE,
 

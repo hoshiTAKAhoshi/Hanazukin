@@ -46,7 +46,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	
 
 	//ChangeWindowMode(TRUE);
-	SetWindowText("ВƒВ≠ВƒВ≠БIВЌВ»ВЄВЂВс");
+	SetWindowText("ВƒВ≠ВƒВ≠Й‘ВЄВЂВс");
 	SetWindowIconID(IDI_ICON2);
 	SetWindowSizeChangeEnableFlag(TRUE);
 	//SetGraphMode(192 * 4, 144 * 4, 32);

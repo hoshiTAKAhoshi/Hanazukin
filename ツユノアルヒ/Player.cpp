@@ -2,12 +2,14 @@
 #include "Bank.h"
 #include "Mouse.h"
 #include "DxLib.h"
+#include <array>
 
 #define WALK_SPEED 16
 
 void Player::TekiFunda()
 {
-	VY = -5.5;
+	VY = -7;
+	//VX *= 1.2;
 	StandF = 0;
 }
 
@@ -24,8 +26,8 @@ void Player::Stop()
 
 void Player::Move()
 {
-
-	X +=VX;
+	if (ChakuChiCnt == 0)
+		X += VX;
 
 	
 	//‰E‚É’n–Ê‚ª‚ ‚é
@@ -79,7 +81,9 @@ void Player::Move()
 
 	if (StandF == 0)
 	{
-		VY += 0.1;
+		Gravity = GetGravity(VY);
+
+		VY += Gravity;
 		if (VY <= 0)
 		{
 			SpAnimStop();
@@ -330,6 +334,20 @@ void Player::ClearUpdate()
 
 }
 
+double Player::GetGravity(double vy)
+{
+	std::array<double,8> treshold{-99,    -6.5,    -4,    -2.5,    0,    1,    2,    99};
+	double gValue[] = {               0.2,     0.55,   0.1,   0.06,  0.06,  0.08,  0.1 };
+	//return 0.1;
+	for (int i =0;i<(treshold.size()) - 1;i++)
+	{
+		if (vy>=treshold[i] && vy<treshold[i + 1])
+			return gValue[i];
+	}
+	return 0.1;
+	
+}
+
 void Player::Update()
 {
 	int mx = Mouse::Instance()->GetX();
@@ -412,7 +430,7 @@ void Player::SetBgXY(int BgX,int BgY)
 void Player::Init()
 {
 	ChakuChiCnt = 0;
-	StandF = 0;
+	StandF = 1;
 	MoveF = 0;
 	MigiMuki = 1;
 	VX = 0;

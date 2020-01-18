@@ -20,6 +20,7 @@ public:
 	void Deth();
 	void ClearInit();
 	void ClearUpdate();
+	double GetGravity(double vy);
 	void Update();
 	void Draw();
 	bool GetStandF();
@@ -42,6 +43,7 @@ private:
 	int AtariX[2] = { -4,4 };
 	int AtariY[2] = { -6,8 };
 	int *Tesuu;
+	double Gravity=0.1;
 	//int AtariUe[2][2] = { {-6 * 4,-8 * 4},{6 * 8,8 * 4} };
 };
 
