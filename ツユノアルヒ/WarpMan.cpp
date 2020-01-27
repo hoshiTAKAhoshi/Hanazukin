@@ -5,6 +5,7 @@
 #include "MainGame.h"
 #include "EffectMgr.h"
 #include <math.h>
+#include <array>
 
 bool WarpMan::KasanatteruMouse()
 {
@@ -269,13 +270,13 @@ void WarpMan::Update()
 				HitKabeF = 0;
 				if (MigiMuki == 1)
 				{
-					SpAnim(10, 8, 10, 9, 10, 10, 10, 11, -1);
 					VX = 1;
+					SpAnim(17, 8, 7, 9, 17, 10, 7, 11, -1);
 				}
 				else
 				{
-					SpAnim(10, 0, 10, 1, 10, 2, 10, 3, -1);
 					VX = -1;
+					SpAnim(17, 0, 7, 1, 17, 2, 7, 3, 0);
 				}
 			}
 		}
@@ -285,12 +286,26 @@ void WarpMan::Update()
 
 	if (StandF == 0)
 	{
-		VY += 0.1;
+		gravity = GetGravity(VY);
+		VY += gravity;
 		if (VY > 5)
 			VY = 5;
 		Y += VY;
-	}
+		if (VY >= 2.4 && JitabataF == 0 && TurnStopCnt==0)
+		{
+			JitabataF = 1;
+			int JitabataAnimFrame = 4;
+			if (MigiMuki == 1)
+			{
+				SpAnim(JitabataAnimFrame, 8, JitabataAnimFrame, 9, JitabataAnimFrame, 10, JitabataAnimFrame, 11, -1);
+			}
+			else
+			{
+				SpAnim(JitabataAnimFrame, 0, JitabataAnimFrame, 1, JitabataAnimFrame, 2, JitabataAnimFrame, 3, 0);
+			}
 
+		}
+	}
 
 	//‰º‚É’n–Ê‚ª‚ ‚é
 	if (Bg->GetChip(0, X + AtariX[0] * ExRate + 1, Y + AtariY[1] * ExRate) != -1 || Bg->GetChip(0, X + AtariX[1] * ExRate - 1, Y + AtariY[1] * ExRate) != -1)
@@ -298,6 +313,21 @@ void WarpMan::Update()
 		if (StandF == 0)
 		{
 			StandF = 1;
+			if (MoveF == 1 && JitabataF==1)
+			{
+				if (MigiMuki == 1)
+				{
+					VX = 1;
+					SpAnim(17, 8, 7, 9, 17, 10, 7, 11, -1);
+				}
+				else
+				{
+					VX = -1;
+					SpAnim(17, 0, 7, 1, 17, 2, 7, 3, 0);
+				}
+			}
+			JitabataF = 0;
+
 			Y = (int)Y;
 			//‚ß‚èž‚Ý–hŽ~
 			while (Bg->GetChip(0, X + AtariX[0] * ExRate + 1, Y + AtariY[1] * ExRate) != -1 || Bg->GetChip(0, X + AtariX[1] * ExRate - 1, Y + AtariY[1] * ExRate) != -1)
@@ -314,6 +344,12 @@ void WarpMan::Update()
 			StandF = 0;
 			VY = 0;
 		}
+	}
+	//printfDx("%d,", GetSpAnimTimeCnt());
+	if (GetSpAnimTimeCnt() % 24 == 1 && StandF == 1 && TurnStopCnt==0)
+	{
+		VY = -2;
+		StandF = 0;
 	}
 
 }
@@ -338,12 +374,12 @@ void WarpMan::MoveStart()
 	if (MigiMuki == 1)
 	{
 		VX = 1;
-		SpAnim(10, 8, 10, 9, 10, 10, 10, 11, -1);
+		SpAnim(17, 8, 7, 9, 17, 10, 7, 11, -1);
 	}
 	else
 	{
 		VX = -1;
-		SpAnim(10, 0, 10, 1, 10, 2, 10, 3, 0);
+		SpAnim(17, 0, 7, 1, 17, 2, 7, 3, 0);
 	}
 }
 
@@ -365,6 +401,19 @@ void WarpMan::MoveStop()
 	}
 }
 
+double WarpMan::GetGravity(double vy)
+{
+	std::array<double, 8> treshold{ -99,    -6.5,    -4,    -1,    0,    1,    2,    99 };
+	double gValue[] = {                 0.1,     0.1,   0.3,   0.08,  0.5,  0.1,  0.1 };
+	//return 0.1;
+	for (int i = 0; i < (treshold.size()) - 1; i++)
+	{
+		if (vy >= treshold[i] && vy < treshold[i + 1])
+			return gValue[i];
+	}
+	return 0.1;
+}
+
 
 WarpMan::WarpMan(int BgX, int BgY, BgMgr* Bg, int Type)
 {
@@ -384,6 +433,7 @@ WarpMan::WarpMan(int BgX, int BgY, BgMgr* Bg, int Type)
 		GrHandleData = Bank::Instance()->GetGrHandle(23);
 	}
 	StandF = 0;
+	JitabataF = 0;
 	MigiMuki = 0;
 	VX = 0;
 	SitaVY = 0;

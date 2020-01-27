@@ -17,6 +17,8 @@ public:
 	void MoveStop();
 private:
 	bool StandF;
-
+	double gravity;
+	double GetGravity(double vy);
+	bool JitabataF;
 };
 

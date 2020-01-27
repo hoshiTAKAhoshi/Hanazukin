@@ -319,6 +319,11 @@ int Sprite::GetSpAnimF()
 	return SpAnimF;
 }
 
+int Sprite::GetSpAnimTimeCnt()
+{
+	return SpAnimTimeCnt;
+}
+
 void Sprite::SpAnimColor(int R1, int G1, int B1, int Time, int R2, int G2, int B2)
 {
 	SpAnimColorF = 1;

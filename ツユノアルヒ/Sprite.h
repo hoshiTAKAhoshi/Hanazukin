@@ -82,6 +82,7 @@ public:
 	void SpAnimStop();
 	void SpAnimUpdate();
 	int GetSpAnimF();
+	int GetSpAnimTimeCnt();
 	void SpAnimColor(int R1, int G1, int B1, int Time, int R2, int G2, int B2);
 	void SpAnimColorUpdate();
 	void SpAnimAlpha(int Value1, int Time, int Value2);

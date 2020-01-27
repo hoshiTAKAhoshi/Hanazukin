@@ -12,10 +12,10 @@
 '---ステージデータ(12*9)---
             ,
             ,
-    G O Q a ,
+            ,
+    GaO Q a ,
     EEE EEE ,
-    EEEEEEE ,
-     E E E  ,
+     EEEEE  ,
  S   E E E  ,
 EEEEEEEEEEEE,
 EEEEEEEEEEEE,
